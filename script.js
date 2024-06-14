@@ -42,7 +42,7 @@ function selectAttack() {
         console.log(i + " " + joueur.attaque[i].nom);
     }
     let choice = parseInt(prompt("Quelle attaque tu choisi ? "))
-    while (choice < 0 || choice > 3) {
+    while (choice < 0 ||  choice >3 || isNaN(choice) == true) {
         choice = parseInt(prompt("Quelle attaque tu choisi ? "))
     }
     return joueur.attaque[choice]
@@ -76,6 +76,7 @@ while (welcome != "o") {
         break
     }else{
         replay = true
+
     }
 }
 if (replay == true) {
