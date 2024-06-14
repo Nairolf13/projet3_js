@@ -42,7 +42,7 @@ function selectAttack() {
         console.log(i + " " + joueur.attaque[i].nom);
     }
     let choice = parseInt(prompt("Quelle attaque tu choisi ? "))
-    while (choice < 0 ||  choice >3 || isNaN(choice) == true) {
+    while (choice < 0 || choice > 3 || isNaN(choice) == true) {
         choice = parseInt(prompt("Quelle attaque tu choisi ? "))
     }
     return joueur.attaque[choice]
@@ -65,16 +65,26 @@ function atk(atks, luncher, opponnent) {
     }
 }
 let welcome = prompt("Bienvenue dans ce jeu de combat 1 VS 1 ! Voulez vous lancer le combat o = oui ,n = non: ");
+while(welcome != "o" && welcome != "n"){
+    welcome = prompt("Veuillez entrer o ou n !!!")
+}
 if (welcome == 'o') {
     replay = true
 }
-while (welcome != "o") {
-    console.log("Ok cool t'as vie !!! ")
+else if(welcome != "o") {
     welcome = prompt("Est ce que tu es sur de ne pas vouloir jouer ?")
-    if (welcome == "o") {
+    while(welcome != "o" && welcome != "n"){
+        welcome = prompt("Veuillez entrer o ou n !!!")}
+    if (welcome == "o" ) {
+        console.log("Ok cool t'as vie !!! ")
         console.log("Aller vas te faire une patrouille");
-        break
-    }else{
+        replay=false
+    }
+    else if (welcome == "n") {
+        replay = true
+    }
+
+    else {
         replay = true
 
     }
@@ -98,7 +108,7 @@ if (replay == true) {
             console.log("Le joueur à " + joueur.pv + " pv et l'ordinateur à " + ordi.pv + "pv!");
             console.log("'''''''''''''''''''''''''''''''''''''''''''");
         }
-    } 
+    }
 }
 
 
